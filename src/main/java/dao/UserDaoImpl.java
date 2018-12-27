@@ -1,6 +1,7 @@
 package dao;
 
 import model.User;
+import model.UserMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class UserDaoImpl implements UserDao {
@@ -12,7 +13,11 @@ public class UserDaoImpl implements UserDao {
     }
 
     public User getUser(int id) {
-        return null;
+
+        String sql="select * from users where id=?;";
+        return jdbcTemplate.queryForObject(sql,new Integer[]{id}, new UserMapper());
+
+
     }
 
 
