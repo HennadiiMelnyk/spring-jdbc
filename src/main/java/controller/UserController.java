@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import service.UserService;
 
 
-
+@RequestMapping(value="/user")
 public class UserController {
 
     private UserService userService;
@@ -19,8 +19,8 @@ public class UserController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public User findOne(@PathVariable("id") int id) {
+    public String findOne(@PathVariable("id") int id) {
 
-        return userService.getById(id);
+        return userService.getById(id).getSurname();
     }
 }
