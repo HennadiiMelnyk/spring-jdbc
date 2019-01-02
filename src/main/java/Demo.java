@@ -2,13 +2,16 @@ import dao.UserDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
+import service.UserService;
 
 public class Demo {
 
     private UserDao userDao;
+    private UserService userService;
 
-
-
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
